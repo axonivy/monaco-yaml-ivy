@@ -1,7 +1,7 @@
 import { editor, Uri } from 'monaco-editor'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
 import { setDiagnosticsOptions } from 'monaco-yaml'
-import YamlWorker from 'monaco-yaml/yaml.worker?worker'
+import YamlWorker from './yaml.worker.js?worker'
 
 window.MonacoEnvironment = {
   getWorker(moduleId, label) {
@@ -17,7 +17,7 @@ window.MonacoEnvironment = {
 }
 
 // The uri is used for the schema file match.
-const modelUri = Uri.parse('a://b/foo.yaml')
+const modelUri = Uri.parse('a://b/ivy.yaml')
 
 setDiagnosticsOptions({
   enableSchemaRequest: true,
