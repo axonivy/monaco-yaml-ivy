@@ -17,7 +17,7 @@ window.MonacoEnvironment = {
 }
 
 // The uri is used for the schema file match.
-const modelUri = Uri.parse('a://b/foo.yaml')
+const modelUri = Uri.parse('a://b/ivy.yaml')
 
 setDiagnosticsOptions({
   enableSchemaRequest: true,
