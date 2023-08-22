@@ -21,6 +21,7 @@ const modelUri = Uri.parse('a://b/ivy.yaml')
 
 setDiagnosticsOptions({
   enableSchemaRequest: true,
+
   hover: true,
   completion: true,
   validate: true,
@@ -28,7 +29,7 @@ setDiagnosticsOptions({
   schemas: [
     {
       // Id of the first schema
-      uri: 'http://myserver/foo-schema.json',
+      uri: 'https://json-schema.axonivy.com/ivy/0.0.2/ivy.json',
       // Associate with our model
       fileMatch: [String(modelUri)],
       schema: {
@@ -46,20 +47,21 @@ setDiagnosticsOptions({
     },
     {
       // Id of the first schema
-      uri: 'http://myserver/bar-schema.json',
-      schema: {
-        type: 'object',
-        properties: {
-          q1: {
-            enum: ['x1', 'x2']
-          }
-        }
-      }
+      
+      uri: 'https://json-schema.axonivy.com/app/0.0.1/app.json',
+      // schema: {
+      //   type: 'object',
+      //   properties: {
+      //     q1: {
+      //       enum: ['x1', 'x2']
+      //     }
+      //   }
+      // }
     }
   ]
 })
 
-const value = 'p1: \np2: \n'
+const value = '# yaml-language-server: $schema=https://json-schema.axonivy.com/app/0.0.1/app.json\nData:\np1: \np2: \n'
 
 editor.create(document.getElementById('editor'), {
   automaticLayout: true,
