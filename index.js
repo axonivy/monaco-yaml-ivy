@@ -30,38 +30,20 @@ setDiagnosticsOptions({
     {
       // Id of the first schema
       uri: 'https://json-schema.axonivy.com/ivy/0.0.2/ivy.json',
-      // Associate with our model
-      fileMatch: [String(modelUri)],
-      schema: {
-        type: 'object',
-        properties: {
-          p1: {
-            enum: ['v1', 'v2']
-          },
-          p2: {
-            // Reference the second schema
-            $ref: 'http://myserver/bar-schema.json'
-          }
-        }
-      }
+      fileMatch: [String(modelUri)]
     },
     {
-      // Id of the first schema
-      
       uri: 'https://json-schema.axonivy.com/app/0.0.1/app.json',
-      // schema: {
-      //   type: 'object',
-      //   properties: {
-      //     q1: {
-      //       enum: ['x1', 'x2']
-      //     }
-      //   }
-      // }
+      fileMatch: [String(Uri.parse('a://b/app.yaml'))]
     }
   ]
 })
 
-const value = '# yaml-language-server: $schema=https://json-schema.axonivy.com/app/0.0.1/app.json\nData:\np1: \np2: \n'
+const value = `
+# yaml-language-server: $schema=https://json-schema.axonivy.com/ivy/0.0.2/ivy.json
+SecuritySystems:
+  azure:
+`
 
 editor.create(document.getElementById('editor'), {
   automaticLayout: true,
