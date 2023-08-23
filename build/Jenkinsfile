@@ -10,15 +10,30 @@ pipeline {
   }
 
   stages {
-    stage('NPM') {
+    stage('monaco-yaml.latest') {
       steps {
         script {
           catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
             docker.build('node', '-f build/Dockerfile .').inside {
-              sh 'npm install && npm run build'
+              sh 'rm -rf monaco-yaml'
+              sh 'git clone -o monaco-yaml https://github.com/ivy-rew/monaco-yaml.git'
+              sh 'sed -i \'s/4.0.4/4.0.5/g\' monaco-yaml/package.json'
+              sh 'cd monaco-yaml && npm install && npm pack'
             }
           }
-          archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: true
+        }
+      }
+    }
+    stage('NPM:monaco-yaml-ivy') {
+      steps {
+        script {
+          catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+            docker.build('node', '-f build/Dockerfile .').inside {
+              sh 'npm install ./monaco-yaml/monaco-yaml-*.tgz && npm install && npm run build'
+            }
+          }
+          archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: false
+          currentBuild.description = "<a href='${BUILD_URL}artifact/dist/index.html'>monaco-yaml</a>"
         }
       }
     }
