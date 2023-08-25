@@ -7,5 +7,21 @@
   <body>
     <div id="editor" style="width: 800px; height: 600px"></div>
     <script type="module" src="index.js"></script>
+    <script>
+      function loadDemo(demo) {
+        window.yamlEditor.create(document.getElementById('editor'), 'a://b/ivy.yaml', demo);
+      }
+      
+      let demo = `# yaml-language-server: $schema=https://json-schema.axonivy.com/ivy/0.0.2/ivy.json
+SecuritySystems:
+  azure:
+`       
+      let params = new URLSearchParams(window.location.search);
+      if (params.get("nodemo") == "") {
+        demo = ""
+      }
+      window.onload = function(){ loadDemo(demo); };
+    </script>
   </body>
 </html>
+
