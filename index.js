@@ -1,6 +1,6 @@
-import { editor, Uri } from 'monaco-editor'
+import { editor, languages, Uri } from 'monaco-editor'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
-import { setDiagnosticsOptions } from 'monaco-yaml'
+import { createLanguageServiceDefaults, setDiagnosticsOptions } from 'monaco-yaml'
 import YamlWorker from './yaml.worker.js?worker'
 
 window.MonacoEnvironment = {
@@ -14,6 +14,7 @@ window.MonacoEnvironment = {
         throw new Error(`Unknown label ${label}`)
     }
   }
+
 }
 
 setDiagnosticsOptions({
@@ -23,6 +24,7 @@ setDiagnosticsOptions({
   validate: true,
   format: true,
 })
+
 
 window.yamlEditor = {
   create: function(element, uri, content) {
