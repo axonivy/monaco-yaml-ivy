@@ -26,7 +26,7 @@ setDiagnosticsOptions({
 
 window.yamlEditor = {
   create: function(element, uri, content) {
-    editor.create(element, {
+    return editor.create(element, {
       automaticLayout: true,
       model: editor.createModel(content, undefined, Uri.parse(uri))
     })
