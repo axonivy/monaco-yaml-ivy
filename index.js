@@ -1,6 +1,6 @@
 import { editor, languages, Uri } from 'monaco-editor'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
-import { createLanguageServiceDefaults, setDiagnosticsOptions } from 'monaco-yaml'
+import { setDiagnosticsOptions } from 'monaco-yaml'
 import YamlWorker from './yaml.worker.js?worker'
 
 window.MonacoEnvironment = {
@@ -28,9 +28,10 @@ setDiagnosticsOptions({
 
 window.yamlEditor = {
   create: function(element, uri, content) {
+    languages.html.registerHTMLLanguageService('xml', {}, { documentFormattingEdits: true })
     return editor.create(element, {
       automaticLayout: true,
       model: editor.createModel(content, undefined, Uri.parse(uri))
-    })
+    });
   }
 }
