@@ -29,5 +29,8 @@ window.yamlEditor = {
       automaticLayout: true,
       model: monaco.editor.createModel(content, undefined, monaco.Uri.parse(uri))
     });
+  },
+  uri: function(uriRaw) {
+    return monaco.Uri.parse(uriRaw);
   }
 }
