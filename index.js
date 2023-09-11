@@ -1,6 +1,6 @@
-import { editor, Uri } from 'monaco-editor'
+import * as monaco from 'monaco-editor'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
-import { setDiagnosticsOptions } from 'monaco-yaml'
+import { configureMonacoYaml } from 'monaco-yaml'
 import YamlWorker from './yaml.worker.js?worker'
 
 window.MonacoEnvironment = {
@@ -14,21 +14,23 @@ window.MonacoEnvironment = {
         throw new Error(`Unknown label ${label}`)
     }
   }
+
 }
 
-setDiagnosticsOptions({
-  enableSchemaRequest: true,
-  hover: true,
-  completion: true,
-  validate: true,
-  format: true,
+configureMonacoYaml(monaco, {
+  enableSchemaRequest: true
 })
+
 
 window.yamlEditor = {
   create: function(element, uri, content) {
-    editor.create(element, {
+    monaco.languages.html.registerHTMLLanguageService('xml', {}, { documentFormattingEdits: true })
+    return monaco.editor.create(element, {
       automaticLayout: true,
-      model: editor.createModel(content, undefined, Uri.parse(uri))
-    })
+      model: monaco.editor.createModel(content, undefined, monaco.Uri.parse(uri))
+    });
+  },
+  uri: function(uriRaw) {
+    return monaco.Uri.parse(uriRaw);
   }
 }
