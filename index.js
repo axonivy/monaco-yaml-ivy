@@ -24,6 +24,8 @@ configureMonacoYaml(monaco, {
 
 window.yamlEditor = {
   create: function(element, uri, content) {
+    monaco.editor.defineTheme('axon-input', themeData('dark'))
+    monaco.editor.setTheme('axon-input')
     monaco.languages.html.registerHTMLLanguageService('xml', {}, { documentFormattingEdits: true })
     return monaco.editor.create(element, {
       automaticLayout: true,
@@ -33,4 +35,29 @@ window.yamlEditor = {
   uri: function(uriRaw) {
     return monaco.Uri.parse(uriRaw);
   }
+}
+
+function themeData(theme) {
+  if (theme == 'dark') {
+    return {
+      base: 'vs-dark',
+      colors: {
+        'editor.foreground': '#FFFFFF',
+        'editorCursor.foreground': '#FFFFFF',
+        'editor.background': '#1b1b1b'
+      },
+      inherit: true,
+      rules: []
+    };
+  }
+  return {
+    base: 'vs',
+    colors: {
+      'editor.foreground': '#202020',
+      'editorCursor.foreground': '#202020',
+      'editor.background': '#ffffff'
+    },
+    inherit: true,
+    rules: []
+  };
 }
