@@ -14,23 +14,47 @@ window.MonacoEnvironment = {
         throw new Error(`Unknown label ${label}`)
     }
   }
-
 }
 
 configureMonacoYaml(monaco, {
   enableSchemaRequest: true
 })
 
-
 window.yamlEditor = {
   create: function(element, uri, content) {
+    monaco.editor.defineTheme('monaco-yaml-theme', themeData('dark'))
+    monaco.editor.setTheme('monaco-yaml-theme')
     monaco.languages.html.registerHTMLLanguageService('xml', {}, { documentFormattingEdits: true })
     return monaco.editor.create(element, {
       automaticLayout: true,
-      model: monaco.editor.createModel(content, undefined, monaco.Uri.parse(uri))
+      model: monaco.editor.createModel(content, undefined, monaco.Uri.parse(uri)),
+      tabSize: 2, 
+      renderWhitespace: 'all'
     });
   },
   uri: function(uriRaw) {
     return monaco.Uri.parse(uriRaw);
+  },
+  setTheme: function(theme) {
+    monaco.editor.defineTheme('monaco-yaml-theme', themeData(theme))
   }
+}
+
+function themeData(theme) {
+  if (theme == 'dark') {
+    return {
+      base: 'vs-dark',
+      colors: {
+        'editor.background': '#293241'
+      },
+      inherit: true,
+      rules: []
+    };
+  }
+  return {
+    base: 'vs',
+    colors: {},
+    inherit: true,
+    rules: []
+  };
 }
