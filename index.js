@@ -14,26 +14,29 @@ window.MonacoEnvironment = {
         throw new Error(`Unknown label ${label}`)
     }
   }
-
 }
 
 configureMonacoYaml(monaco, {
   enableSchemaRequest: true
 })
 
-
 window.yamlEditor = {
   create: function(element, uri, content) {
-    monaco.editor.defineTheme('axon-input', themeData('dark'))
-    monaco.editor.setTheme('axon-input')
+    monaco.editor.defineTheme('monaco-yaml-theme', themeData('dark'))
+    monaco.editor.setTheme('monaco-yaml-theme')
     monaco.languages.html.registerHTMLLanguageService('xml', {}, { documentFormattingEdits: true })
     return monaco.editor.create(element, {
       automaticLayout: true,
-      model: monaco.editor.createModel(content, undefined, monaco.Uri.parse(uri))
+      model: monaco.editor.createModel(content, undefined, monaco.Uri.parse(uri)),
+      tabSize: 2, 
+      renderWhitespace: 'all'
     });
   },
   uri: function(uriRaw) {
     return monaco.Uri.parse(uriRaw);
+  },
+  setTheme: function(theme) {
+    monaco.editor.defineTheme('monaco-yaml-theme', themeData(theme))
   }
 }
 
@@ -42,9 +45,7 @@ function themeData(theme) {
     return {
       base: 'vs-dark',
       colors: {
-        'editor.foreground': '#FFFFFF',
-        'editorCursor.foreground': '#FFFFFF',
-        'editor.background': '#1b1b1b'
+        'editor.background': '#293241'
       },
       inherit: true,
       rules: []
@@ -52,11 +53,7 @@ function themeData(theme) {
   }
   return {
     base: 'vs',
-    colors: {
-      'editor.foreground': '#202020',
-      'editorCursor.foreground': '#202020',
-      'editor.background': '#ffffff'
-    },
+    colors: {},
     inherit: true,
     rules: []
   };
