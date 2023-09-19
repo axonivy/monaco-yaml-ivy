@@ -24,8 +24,8 @@ configureMonacoYaml(monaco, {
 })
 
 window.yamlEditor = {
-  create: function(element, uri, content) {
-    monaco.editor.defineTheme('monaco-yaml-theme', themeData('dark'))
+  create: function(element, uri, content, theme) {
+    monaco.editor.defineTheme('monaco-yaml-theme', themeData(theme))
     monaco.editor.setTheme('monaco-yaml-theme')
     monaco.languages.html.registerHTMLLanguageService('xml', {}, { documentFormattingEdits: true })
     return monaco.editor.create(element, {

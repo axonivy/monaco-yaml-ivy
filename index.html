@@ -19,19 +19,23 @@
     <div id="editor"></div>
     <script type="module" src="index.js"></script>
     <script>
-      function loadDemo(demo) {
-        window.codeEditor = window.yamlEditor.create(document.getElementById('editor'), 'a://b/ivy.yaml', demo);
+      function loadEditor(content, theme) {
+        window.codeEditor = window.yamlEditor.create(document.getElementById('editor'), 'a://b/ivy.yaml', content, theme);
       }
       
-      let demo = `# yaml-language-server: $schema=https://json-schema.axonivy.com/ivy/0.0.2/ivy.json
+      let content = `# yaml-language-server: $schema=https://json-schema.axonivy.com/ivy/0.0.2/ivy.json
 SecuritySystems:
   azure:
 `       
       let params = new URLSearchParams(window.location.search);
-      if (params.get("nodemo") == "") {
-        demo = ""
+      if (params.get("demo") === "off") {
+        content = ""
       }
-      window.onload = function(){ loadDemo(demo); };
+      const theme = params.get("theme");
+      if (theme === undefined) {
+        theme = "light"
+      }
+      window.onload = function(){ loadEditor(content, theme); };
     </script>
   </body>
 </html>
