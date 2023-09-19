@@ -13,6 +13,9 @@ window.MonacoEnvironment = {
       default:
         throw new Error(`Unknown label ${label}`)
     }
+  },
+  setTheme: function(theme) {
+    monaco.editor.defineTheme('monaco-yaml-theme', themeData(theme))
   }
 }
 
@@ -34,9 +37,6 @@ window.yamlEditor = {
   },
   uri: function(uriRaw) {
     return monaco.Uri.parse(uriRaw);
-  },
-  setTheme: function(theme) {
-    monaco.editor.defineTheme('monaco-yaml-theme', themeData(theme))
   }
 }
 
