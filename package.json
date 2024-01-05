@@ -13,6 +13,6 @@
   "dependencies": {
     "monaco-languageserver-types": "^0.3.2",
     "monaco-yaml": "^5.1.0",
-    "vite": "^5.0.10"
+    "vite": "^5.0.11"
   }
 }
