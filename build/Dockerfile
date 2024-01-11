@@ -1,6 +1,9 @@
-FROM node:18.17.1-bookworm
+FROM mcr.microsoft.com/playwright:v1.40.1-jammy
 
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-ENV PATH=$PATH:/home/node/.npm-global/bin
+RUN apt-get update &&\
+  apt-get install software-properties-common -y &&\
+  apt-add-repository universe -y &&\
+  apt-get update &&\
+  apt-get install openjdk-17-jdk maven -y
 
 USER node
