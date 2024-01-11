@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { createServer } from 'playwright-monaco'
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -11,7 +12,10 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:5173',
+    baseURL: await createServer({
+      setup: './tests/setup',
+      yaml: './yaml.worker'
+    }),
     trace: 'on-first-retry',
   },
 
