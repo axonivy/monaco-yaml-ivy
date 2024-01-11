@@ -23,6 +23,18 @@ pipeline {
         }
       }
     }
+    stage('NPM:test') {
+      steps {
+        script {
+          catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+            docker.build('node', '-f build/Dockerfile .').inside {
+              sh 'npm run test'
+            }
+          }
+          archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
+        }
+      }
+    }
     stage('Deploy') {
       when {
         expression { isReleaseOrMasterBranch() && currentBuild.changeSets.size() > 0 }
