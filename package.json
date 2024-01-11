@@ -9,7 +9,8 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui"
   },
   "dependencies": {
     "monaco-languageserver-types": "^0.3.2",
