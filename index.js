@@ -20,7 +20,25 @@ window.MonacoEnvironment = {
 }
 
 configureMonacoYaml(monaco, {
-  enableSchemaRequest: true
+  enableSchemaRequest: true,
+  schemas: [ 
+    {
+      // If YAML file is opened matching this glob
+      fileMatch: ['**/ivy.yaml'],
+      // Then this schema will be downloaded from the internet and used.
+      //uri: 'https://json-schema.ivyteam.ch/ivy/11.3.9/ivy.json'
+      //uri: 'http://127.0.0.1:8080/system/json-schema/ivy/11.3.9/ivy.json'
+      uri: 'http://localhost:5173/ivy/11.3.9/ivy.json'
+    },
+    // {
+    //   // If YAML file is opened matching this glob
+    //   fileMatch: ['**/app.yaml'],
+    //   // Then this schema will be downloaded from the internet and used.
+    //   //uri: 'https://json-schema.ivyteam.ch/ivy/11.3.9/ivy.json'
+    //   //uri: 'http://127.0.0.1:8080/system/json-schema/ivy/11.3.9/ivy.json'
+    //   uri: '/app/11.3.0/app.json'
+    // }
+  ]  
 })
 
 window.yamlEditor = {
