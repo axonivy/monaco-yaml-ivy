@@ -20,6 +20,6 @@
   "devDependencies": {
     "@playwright/test": "^1.44.1",
     "@types/node": "^20.11.2",
-    "playwright-monaco": "^1.2.1"
+    "playwright-monaco": "^1.2.3"
   }
 }
