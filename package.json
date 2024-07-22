@@ -13,7 +13,7 @@
     "test:ui": "npx playwright test --ui"
   },
   "dependencies": {
-    "monaco-languageserver-types": "^0.3.4",
+    "monaco-languageserver-types": "^0.4.0",
     "monaco-yaml": "^5.2.2",
     "vite": "5.3.4"
   },
