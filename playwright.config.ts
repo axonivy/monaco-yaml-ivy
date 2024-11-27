@@ -12,7 +12,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: await createServer({
+    baseURL: process.env.CI ? 'http://localhost:4173' : await createServer({
       setup: './tests/setup',
       yaml: './yaml.worker'
     }),
@@ -27,8 +27,8 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'npm run start',
-    url: 'http://localhost:5173',
+    command: 'npm run serve',
+    url: 'http://localhost:4173',
     stdout: 'pipe',
     stderr: 'pipe',
     reuseExistingServer: !process.env.CI,
