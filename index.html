@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Monaco YAML</title>
-    <style>
-      html, body, #editor {
-        height: 100%;
-      }
-      body {
-        margin: 0;
-      }
-      #editor {
-        width: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="editor"></div>
-    <script type="module" src="index.js"></script>
-    <script>
-      function loadEditor(content, theme) {
-        window.codeEditor = window.yamlEditor.create(document.getElementById('editor'), 'a://b/ivy.yaml', content, theme);
-      }
-      
-      let content = `# yaml-language-server: $schema=https://json-schema.axonivy.com/ivy/11.3.1/ivy.json
+
+<head>
+  <meta charset="utf-8" />
+  <title>Monaco YAML</title>
+  <style>
+    html,
+    body,
+    #editor {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    #editor {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="editor"></div>
+  <script type="module" src="index.js"></script>
+  <script>
+    function loadEditor(content, theme) {
+      window.codeEditor = window.yamlEditor.create(document.getElementById('editor'), 'a://b/ivy.yaml', content, theme);
+    }
+
+    let content = `# yaml-language-server: $schema=https://json-schema.axonivy.com/ivy/11.3.1/ivy.json
 SecuritySystems:
   azure:
-`       
-      let params = new URLSearchParams(window.location.search);
-      if (params.get("demo") === "off") {
-        content = ""
-      }
-      const theme = params.get("theme");
-      if (theme === undefined) {
-        theme = "light"
-      }
-      window.onload = function(){ loadEditor(content, theme); };
-    </script>
-  </body>
-</html>
+`
+    let params = new URLSearchParams(window.location.search);
+    if (params.get("demo") === "off") {
+      content = ""
+    }
+    const theme = params.get("theme");
+    if (theme === undefined) {
+      theme = "light"
+    }
+    window.onload = function () { loadEditor(content, theme); };
+  </script>
+</body>
 
+</html>
