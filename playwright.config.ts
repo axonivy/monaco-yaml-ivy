@@ -1,5 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-import { createServer } from 'playwright-monaco'
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -9,28 +8,24 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: await createServer({
-      setup: './tests/setup',
-      yaml: './yaml.worker'
-    }),
-    trace: 'on-first-retry',
+    baseURL: process.env.CI ? 'http://localhost:4173' : 'http://localhost:5173',
+    trace: 'on-first-retry'
   },
 
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+      use: { ...devices['Desktop Chrome'] }
+    }
   ],
 
   webServer: {
-    command: 'npm run start',
-    url: 'http://localhost:5173',
+    command: 'npm run serve',
+    url: 'http://localhost:4173',
     stdout: 'pipe',
     stderr: 'pipe',
-    reuseExistingServer: !process.env.CI,
-  },
+    reuseExistingServer: !process.env.CI
+  }
 });
