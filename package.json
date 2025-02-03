@@ -19,7 +19,7 @@
     "vite": "6.0.5"
   },
   "devDependencies": {
-    "@playwright/test": "1.48.2",
+    "@playwright/test": "1.50.1",
     "@types/node": "^22.5.2"
   }
 }
