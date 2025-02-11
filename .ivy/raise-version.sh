@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mvn versions:set -DnewVersion=${1} -DprocessAllModules
-mvn versions:commit -DprocessAllModules
+mvn --batch-mode -f build/sbom/pom.xml versions:set versions:commit -DnewVersion=${1}
+mvn --batch-mode versions:set versions:commit -DnewVersion=${1} -DprocessAllModules

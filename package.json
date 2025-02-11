@@ -11,7 +11,8 @@
     "build": "vite build",
     "serve": "vite preview",
     "test": "npx playwright test",
-    "test:ui": "npx playwright test --ui"
+    "test:ui": "npx playwright test --ui",
+    "sbom": "npx --yes @cyclonedx/cyclonedx-npm --output-format JSON --output-file bom.json"
   },
   "dependencies": {
     "monaco-languageserver-types": "^0.4.0",
