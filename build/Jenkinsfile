@@ -15,7 +15,7 @@ pipeline {
         script {
           catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
             docker.build('node', '-f build/Dockerfile .').inside {
-              sh 'npm install && npm run build'
+              sh 'npm install && npm run build && npm run sbom'
             }
           }
           archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: false
@@ -35,13 +35,26 @@ pipeline {
         }
       }
     }
+    stage('bom') {
+      steps {
+        script {
+          if (isReleasingBranch()) {
+            docker.build('maven-build', '-f build/Dockerfile.maven .').inside {        
+              def version = sh (script: "mvn help:evaluate -Dexpression=project.version -q -DforceStdout", returnStdout: true)
+              maven cmd: '-f build/sbom/pom.xml clean deploy'
+              uploadBOM(projectName: 'monaco-yaml-ivy', projectVersion: version, bomFile: 'bom.json')
+            }
+          }
+        }
+      }
+    }
     stage('Deploy') {
       when {
-        expression { isReleaseOrMasterBranch() && currentBuild.changeSets.size() > 0 }
+        expression { isReleasingBranch() && currentBuild.changeSets.size() > 0 }
       }
       steps {
         script {
-          docker.image('maven:3.8.6-eclipse-temurin-17').inside {
+          docker.build('maven-build', '-f build/Dockerfile.maven .').inside {
             maven cmd: 'clean deploy'
           }
           archiveArtifacts 'target/monaco-yaml-ivy-*.jar'
@@ -49,8 +62,4 @@ pipeline {
       }
     }
   }
-}
-
-def isReleaseOrMasterBranch() {
-  return env.BRANCH_NAME == 'master' || env.BRANCH_NAME.startsWith('release/') 
 }
