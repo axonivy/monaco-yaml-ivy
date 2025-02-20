@@ -15,7 +15,7 @@ pipeline {
         script {
           catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
             docker.build('node', '-f build/Dockerfile .').inside {
-              sh 'npm install && npm run build && npm run sbom'
+              sh 'npm install && npm run build && npm run sbom && npm run sbom-dev'
             }
           }
           archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: false
@@ -42,7 +42,7 @@ pipeline {
             docker.build('maven-build', '-f build/Dockerfile.maven .').inside {        
               def version = sh (script: "mvn help:evaluate -Dexpression=project.version -q -DforceStdout", returnStdout: true)
               maven cmd: '-f build/sbom/pom.xml clean deploy'
-              uploadBOM(projectName: 'monaco-yaml-ivy', projectVersion: version, bomFile: 'bom.json')
+              uploadBOM(projectName: 'monaco-yaml-ivy', projectVersion: version, bomFile: 'bom-dev.json')
             }
           }
         }
