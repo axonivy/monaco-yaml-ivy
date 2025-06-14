@@ -20,7 +20,7 @@
     "monaco-yaml": "^5.2.3"
   },
   "devDependencies": {
-    "@playwright/test": "1.52.0",
+    "@playwright/test": "1.53.0",
     "@types/node": "^22.5.2",
     "vite": "6.3.5"
   }
