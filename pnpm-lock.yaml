@@ -9,17 +9,14 @@ importers:
   .:
     dependencies:
       monaco-editor:
-        specifier: 0.43.0
-        version: 0.43.0
+        specifier: 0.54.0
+        version: 0.54.0
       monaco-languageserver-types:
         specifier: ^0.4.0
         version: 0.4.0
       monaco-yaml:
         specifier: ^5.2.3
-        version: 5.4.0(monaco-editor@0.43.0)
-      typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
+        version: 5.4.0(monaco-editor@0.54.0)
     devDependencies:
       '@playwright/test':
         specifier: 1.57.0
@@ -27,6 +24,9 @@ importers:
       '@types/node':
         specifier: ^24.0.0
         version: 24.10.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
       vite:
         specifier: 7.2.4
         version: 7.2.4(@types/node@24.10.1)(yaml@2.8.2)
@@ -310,6 +310,9 @@ packages:
   '@types/node@24.10.1':
     resolution: {integrity: sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ==}
 
+  dompurify@3.1.7:
+    resolution: {integrity: sha512-VaTstWtsneJY8xzy7DekmYWEOZcmzIe3Qb3zPd4STve1OBTa+e+WmS1ITQec1fZYXI3HCsOZZiSMpG6oxoWMWQ==}
+
   esbuild@0.25.12:
     resolution: {integrity: sha512-bbPBYYrtZbkt6Os6FiTLCTFxvq4tt3JKall1vRwshA3fdVztsLAatFaZobhkBC8/BrPetoa0oksYoKXoG4ryJg==}
     engines: {node: '>=18'}
@@ -337,8 +340,13 @@ packages:
   jsonc-parser@3.3.1:
     resolution: {integrity: sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==}
 
-  monaco-editor@0.43.0:
-    resolution: {integrity: sha512-cnoqwQi/9fml2Szamv1XbSJieGJ1Dc8tENVMD26Kcfl7xGQWp7OBKMjlwKVGYFJ3/AXJjSOGvcqK7Ry/j9BM1Q==}
+  marked@14.0.0:
+    resolution: {integrity: sha512-uIj4+faQ+MgHgwUW1l2PsPglZLOLOT1uErt06dAPtx2kjteLAkbsd/0FiYg/MGS+i7ZKLb7w2WClxHkzOOuryQ==}
+    engines: {node: '>= 18'}
+    hasBin: true
+
+  monaco-editor@0.54.0:
+    resolution: {integrity: sha512-hx45SEUoLatgWxHKCmlLJH81xBo0uXP4sRkESUpmDQevfi+e7K1VuiSprK6UpQ8u4zOcKNiH0pMvHvlMWA/4cw==}
 
   monaco-languageserver-types@0.4.0:
     resolution: {integrity: sha512-QQ3BZiU5LYkJElGncSNb5AKoJ/LCs6YBMCJMAz9EA7v+JaOdn3kx2cXpPTcZfKA5AEsR0vc97sAw+5mdNhVBmw==}
@@ -631,6 +639,8 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
+  dompurify@3.1.7: {}
+
   esbuild@0.25.12:
     optionalDependencies:
       '@esbuild/aix-ppc64': 0.25.12
@@ -672,7 +682,12 @@ snapshots:
 
   jsonc-parser@3.3.1: {}
 
-  monaco-editor@0.43.0: {}
+  marked@14.0.0: {}
+
+  monaco-editor@0.54.0:
+    dependencies:
+      dompurify: 3.1.7
+      marked: 14.0.0
 
   monaco-languageserver-types@0.4.0:
     dependencies:
@@ -686,18 +701,18 @@ snapshots:
 
   monaco-types@0.1.0: {}
 
-  monaco-worker-manager@2.0.1(monaco-editor@0.43.0):
+  monaco-worker-manager@2.0.1(monaco-editor@0.54.0):
     dependencies:
-      monaco-editor: 0.43.0
+      monaco-editor: 0.54.0
 
-  monaco-yaml@5.4.0(monaco-editor@0.43.0):
+  monaco-yaml@5.4.0(monaco-editor@0.54.0):
     dependencies:
       jsonc-parser: 3.3.1
-      monaco-editor: 0.43.0
+      monaco-editor: 0.54.0
       monaco-languageserver-types: 0.4.0
       monaco-marker-data-provider: 1.2.4
       monaco-types: 0.1.0
-      monaco-worker-manager: 2.0.1(monaco-editor@0.43.0)
+      monaco-worker-manager: 2.0.1(monaco-editor@0.54.0)
       path-browserify: 1.0.1
       prettier: 3.7.4
       vscode-languageserver-textdocument: 1.0.12
