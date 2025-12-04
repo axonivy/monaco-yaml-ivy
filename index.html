@@ -23,26 +23,7 @@
 
 <body>
   <div id="editor"></div>
-  <script type="module" src="index.js"></script>
-  <script>
-    function loadEditor(content, theme) {
-      window.codeEditor = window.yamlEditor.create(document.getElementById('editor'), 'a://b/ivy.yaml', content, theme);
-    }
-
-    let content = `# yaml-language-server: $schema=https://json-schema.axonivy.com/ivy/11.3.1/ivy.json
-SecuritySystems:
-  azure:
-`
-    let params = new URLSearchParams(window.location.search);
-    if (params.get("demo") === "off") {
-      content = ""
-    }
-    const theme = params.get("theme");
-    if (theme === undefined) {
-      theme = "light"
-    }
-    window.onload = function () { loadEditor(content, theme); };
-  </script>
+  <script type="module" src="src/index.ts"></script>
 </body>
 
 </html>

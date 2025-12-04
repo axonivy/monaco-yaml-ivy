@@ -17,6 +17,7 @@ test('markers', async ({ page }) => {
   await setContent(page);
   const invalid = page.locator('text=InvalidStuff');
   await expect(invalid).toBeVisible();
+  await expect(page.locator('.squiggly-warning')).toBeVisible();
   await invalid.hover();
   await expect(page.locator('.marker.hover-contents')).toHaveText(/Property InvalidStuff is not allowed./);
 });

@@ -11,16 +11,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc --noEmit && vite build",
     "serve": "vite preview",
-    "test": "npx playwright test",
-    "test:ui": "npx playwright test --ui",
-    "sbom": "npx --yes @cyclonedx/cyclonedx-npm --output-format JSON --output-file bom.json --omit dev",
-    "sbom-dev": "npx --yes @cyclonedx/cyclonedx-npm --output-format JSON --output-file bom-dev.json"
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "sbom": "pnpm dlx @cyclonedx/cdxgen -t pnpm --required-only",
+    "sbom:dev": "pnpm dlx @cyclonedx/cdxgen -t pnpm --output bom-dev.json"
   },
   "dependencies": {
     "monaco-languageserver-types": "^0.4.0",
-    "monaco-yaml": "^5.2.3"
+    "monaco-editor": "0.43.0",
+    "monaco-yaml": "^5.2.3",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@playwright/test": "1.57.0",

@@ -10,12 +10,12 @@ pipeline {
   }
 
   stages {
-    stage('NPM:monaco-yaml-ivy') {
+    stage('build') {
       steps {
         script {
           catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
             docker.build('node', '-f build/Dockerfile.playwright .').inside {
-              sh 'npm install && npm run build && npm run sbom && npm run sbom-dev'
+              sh 'pnpm install && pnpm run build && pnpm run sbom && pnpm run sbom:dev'
             }
           }
           archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: false
@@ -23,15 +23,18 @@ pipeline {
         }
       }
     }
-    stage('NPM:test') {
+    stage('test') {
       steps {
         script {
           catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
             docker.build('node', '-f build/Dockerfile.playwright .').inside {
-              sh 'npm run test'
+              sh 'pnpm run test'
             }
           }
-          archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
+          archiveArtifacts artifacts: 'test-results/**', allowEmptyArchive: true
+          withChecks('Tests') {
+            junit testDataPublishers: [[$class: 'StabilityTestDataPublisher']], testResults: 'report.xml'
+          }
         }
       }
     }
