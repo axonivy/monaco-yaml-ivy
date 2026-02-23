@@ -1,13 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "local>axonivy/renovate-config:npm"
-  ],
+  "extends": ["local>axonivy/renovate-config:npm"],
   "packageRules": [
     {
-      "matchDepTypes": [
-        "devDependencies"
-      ],
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
+    },
+    {
+      "matchPackageNames": ["pnpm"],
       "automerge": true
     }
   ]
