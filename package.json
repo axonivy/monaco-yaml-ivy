@@ -15,8 +15,8 @@
     "serve": "vite preview",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
-    "sbom": "pnpm dlx @cyclonedx/cdxgen -t pnpm --required-only",
-    "sbom:dev": "pnpm dlx @cyclonedx/cdxgen -t pnpm --output bom-dev.json"
+    "sbom": "pnpm sbom --sbom-format cyclonedx --prod > bom.json",
+    "sbom:dev": "pnpm sbom --sbom-format cyclonedx > bom-dev.json"
   },
   "dependencies": {
     "monaco-languageserver-types": "^0.4.0",
