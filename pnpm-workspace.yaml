@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: false
+minimumReleaseAgeExclude:
+  - '@axonivy/*'
+overrides:
+  dompurify@<=3.3.3: '>=3.4.0'
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 43200 # minutes (30 days)
+verifyDepsBeforeRun: warn

@@ -1,6 +1,6 @@
-# YAML Monaco Editor 
+# YAML Monaco Editor
 
-NPM packaging for Microsofts Monaco Editor, including a YAML worker.
+Packaging for Microsofts Monaco Editor, including a YAML worker.
 
 Built upon the work of [Moncaco YAML](https://github.com/remcohaszing/monaco-yaml)
 
@@ -10,11 +10,11 @@ Useful commands:
 
 ```
 # fetch all dependencies
-npm install
+pnpm install
 
 # serve in dev mode
-npm run start
+pnpm run start
 
 # build for production
-npm run build
+pnpm run build
 ```
