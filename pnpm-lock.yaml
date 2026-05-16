@@ -19,7 +19,7 @@ importers:
         version: 0.4.0
       monaco-yaml:
         specifier: ^5.2.3
-        version: 5.4.1(monaco-editor@0.54.0)
+        version: 5.5.0(monaco-editor@0.54.0)
     devDependencies:
       '@playwright/test':
         specifier: 1.59.1
@@ -32,7 +32,7 @@ importers:
         version: 6.0.3
       vite:
         specifier: 8.0.13
-        version: 8.0.13(@types/node@24.12.4)(yaml@2.8.4)
+        version: 8.0.13(@types/node@24.12.4)(yaml@2.9.0)
 
 packages:
 
@@ -166,6 +166,9 @@ packages:
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
 
+  '@vscode/l10n@0.0.18':
+    resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
+
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
@@ -291,8 +294,8 @@ packages:
     peerDependencies:
       monaco-editor: '>=0.30.0'
 
-  monaco-yaml@5.4.1:
-    resolution: {integrity: sha512-YQ6d/Ei98Uk073SJLFbwuSi95qhnl8F8NNmIUqN2XhDt9psZN2LqQ1T7pPQ866NJb2wFj44IrjnANgpa2jTfag==}
+  monaco-yaml@5.5.0:
+    resolution: {integrity: sha512-FEJezTYwzL3VFCWnA98mPp0AmPERoiQNN54ycllF0LorUeTXPN2YzJzu9jfzwVn2CxX1qajEornAr4CrZffuMQ==}
     peerDependencies:
       monaco-editor: '>=0.36'
 
@@ -413,8 +416,8 @@ packages:
   vscode-uri@3.1.0:
     resolution: {integrity: sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==}
 
-  yaml@2.8.4:
-    resolution: {integrity: sha512-ml/JPOj9fOQK8RNnWojA67GbZ0ApXAUlN2UQclwv2eVgTgn7O9gg9o7paZWKMp4g0H3nTLtS9LVzhkpOFIKzog==}
+  yaml@2.9.0:
+    resolution: {integrity: sha512-2AvhNX3mb8zd6Zy7INTtSpl1F15HW6Wnqj0srWlkKLcpYl/gMIMJiyuGq2KeI2YFxUPjdlB+3Lc10seMLtL4cA==}
     engines: {node: '>= 14.6'}
     hasBin: true
 
@@ -512,6 +515,8 @@ snapshots:
   '@types/trusted-types@2.0.7':
     optional: true
 
+  '@vscode/l10n@0.0.18': {}
+
   detect-libc@2.1.2: {}
 
   dompurify@3.4.0:
@@ -602,8 +607,9 @@ snapshots:
     dependencies:
       monaco-editor: 0.54.0
 
-  monaco-yaml@5.4.1(monaco-editor@0.54.0):
+  monaco-yaml@5.5.0(monaco-editor@0.54.0):
     dependencies:
+      '@vscode/l10n': 0.0.18
       jsonc-parser: 3.3.1
       monaco-editor: 0.54.0
       monaco-languageserver-types: 0.4.0
@@ -615,7 +621,7 @@ snapshots:
       vscode-languageserver-textdocument: 1.0.12
       vscode-languageserver-types: 3.17.5
       vscode-uri: 3.1.0
-      yaml: 2.8.4
+      yaml: 2.9.0
 
   nanoid@3.3.11: {}
 
@@ -676,7 +682,7 @@ snapshots:
 
   undici-types@7.16.0: {}
 
-  vite@8.0.13(@types/node@24.12.4)(yaml@2.8.4):
+  vite@8.0.13(@types/node@24.12.4)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
@@ -686,7 +692,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.12.4
       fsevents: 2.3.3
-      yaml: 2.8.4
+      yaml: 2.9.0
 
   vscode-jsonrpc@8.2.0: {}
 
@@ -701,4 +707,4 @@ snapshots:
 
   vscode-uri@3.1.0: {}
 
-  yaml@2.8.4: {}
+  yaml@2.9.0: {}
