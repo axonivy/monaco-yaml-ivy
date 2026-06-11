@@ -19,7 +19,7 @@ importers:
         version: 0.4.0
       monaco-yaml:
         specifier: ^5.2.3
-        version: 5.5.0(monaco-editor@0.43.0)
+        version: 5.5.1(monaco-editor@0.43.0)
     devDependencies:
       '@playwright/test':
         specifier: 1.60.0
@@ -29,7 +29,7 @@ importers:
         version: 24.13.1
       vite:
         specifier: ^8.0.0
-        version: 8.0.16(@types/node@24.13.1)(yaml@2.8.3)
+        version: 8.0.16(@types/node@24.13.1)(yaml@2.9.0)
 
 packages:
 
@@ -186,8 +186,8 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  jsonc-parser@3.2.0:
-    resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
+  jsonc-parser@3.3.1:
+    resolution: {integrity: sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==}
 
   lightningcss-android-arm64@1.32.0:
     resolution: {integrity: sha512-YK7/ClTt4kAK0vo6w3X+Pnm0D2cf2vPHbhOXdoNti1Ga0al1P4TBZhwjATvjNwLEBCnKvjJc2jQgHXH0NEwlAg==}
@@ -269,10 +269,8 @@ packages:
   monaco-languageserver-types@0.4.0:
     resolution: {integrity: sha512-QQ3BZiU5LYkJElGncSNb5AKoJ/LCs6YBMCJMAz9EA7v+JaOdn3kx2cXpPTcZfKA5AEsR0vc97sAw+5mdNhVBmw==}
 
-  monaco-marker-data-provider@1.1.1:
-    resolution: {integrity: sha512-PGB7TJSZE5tmHzkxv/OEwK2RGNC2A7dcq4JRJnnj31CUAsfmw0Gl+1QTrH0W0deKhcQmQM0YVPaqgQ+0wCt8Mg==}
-    peerDependencies:
-      monaco-editor: '>=0.30.0'
+  monaco-marker-data-provider@1.2.5:
+    resolution: {integrity: sha512-5ZdcYukhPwgYMCvlZ9H5uWs5jc23BQ8fFF5AhSIdrz5mvYLsqGZ58ZLxTv8rCX6+AxdJ8+vxg1HVSk+F2bLosg==}
 
   monaco-types@0.1.2:
     resolution: {integrity: sha512-8LwfrlWXsedHwAL41xhXyqzPibS8IqPuIXr9NdORhonS495c2/wky+sI1PRLvMCuiI0nqC2NH1six9hdiRY4Xg==}
@@ -282,8 +280,8 @@ packages:
     peerDependencies:
       monaco-editor: '>=0.30.0'
 
-  monaco-yaml@5.5.0:
-    resolution: {integrity: sha512-FEJezTYwzL3VFCWnA98mPp0AmPERoiQNN54ycllF0LorUeTXPN2YzJzu9jfzwVn2CxX1qajEornAr4CrZffuMQ==}
+  monaco-yaml@5.5.1:
+    resolution: {integrity: sha512-vLR1EoV7Au0tkuA9T6ZJr2q7CooRP69AvlqzWh9Gui6amuijdTsfCAQHtCFobRMwkhbuly6J1Q16NziTTiWtWQ==}
     peerDependencies:
       monaco-editor: '>=0.36'
 
@@ -316,10 +314,13 @@ packages:
     resolution: {integrity: sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier@3.4.2:
-    resolution: {integrity: sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==}
+  prettier@3.8.4:
+    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
     engines: {node: '>=14'}
     hasBin: true
+
+  proxy-disposable@1.0.0:
+    resolution: {integrity: sha512-Y673BKpFqk8XkYuoK9DGZ1RIzldz5SkzxTKc/+DkpaMdrDEbEalWlO/uMRMdJsXvdbTybJI26XDwN0KJpZDN4w==}
 
   rolldown@1.0.3:
     resolution: {integrity: sha512-i00lAJ2ks1BYr7rjNjKC7BcqAS7nVfiT3QX1SI5aY+AFHblCmaUf9OE9dbdzDvW6dJxbi2ZCZiy9v3CcwOiX3g==}
@@ -390,8 +391,8 @@ packages:
   vscode-languageserver-protocol@3.18.0:
     resolution: {integrity: sha512-Zdz+kJ12Iz6tc11xfZyEo501bBATHXrCjmMfnaR3pMnf1CoqZBKIynba3P+/bi9VEdrMbNtAVKYpKhbODvqy+Q==}
 
-  vscode-languageserver-textdocument@1.0.8:
-    resolution: {integrity: sha512-1bonkGqQs5/fxGT5UchTgjGVnfysL0O8v1AYMBjqTbWQTFn721zaPGDYFkOKtfDgFiSgXM3KwaG3FMGfW4Ed9Q==}
+  vscode-languageserver-textdocument@1.0.12:
+    resolution: {integrity: sha512-cxWNPesCnQCcMPeenjKKsOCKQZ/L6Tv19DTRIGuLWe32lyzWhihGVJ/rcckZXJxfdKCFvRLS3fpBIsV/ZGX4zA==}
 
   vscode-languageserver-types@3.18.0:
     resolution: {integrity: sha512-8TsGPNMIMiiBdkORgRSvLjuiEIiAFtO+KssmYWxQ+uSVvlf7RjK8YKCOjPzZ+YA04jXEV7+7LvkSmHkhpNS99g==}
@@ -399,8 +400,8 @@ packages:
   vscode-uri@3.1.0:
     resolution: {integrity: sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==}
 
-  yaml@2.8.3:
-    resolution: {integrity: sha512-AvbaCLOO2Otw/lW5bmh9d/WEdcDFdQp2Z2ZUH3pX9U2ihyUY0nvLv7J6TrWowklRGPYbB/IuIMfYgxaCPg5Bpg==}
+  yaml@2.9.0:
+    resolution: {integrity: sha512-2AvhNX3mb8zd6Zy7INTtSpl1F15HW6Wnqj0srWlkKLcpYl/gMIMJiyuGq2KeI2YFxUPjdlB+3Lc10seMLtL4cA==}
     engines: {node: '>= 14.6'}
     hasBin: true
 
@@ -509,7 +510,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  jsonc-parser@3.2.0: {}
+  jsonc-parser@3.3.1: {}
 
   lightningcss-android-arm64@1.32.0:
     optional: true
@@ -568,9 +569,9 @@ snapshots:
       vscode-languageserver-protocol: 3.18.0
       vscode-uri: 3.1.0
 
-  monaco-marker-data-provider@1.1.1(monaco-editor@0.43.0):
+  monaco-marker-data-provider@1.2.5:
     dependencies:
-      monaco-editor: 0.43.0
+      monaco-types: 0.1.2
 
   monaco-types@0.1.2: {}
 
@@ -578,21 +579,22 @@ snapshots:
     dependencies:
       monaco-editor: 0.43.0
 
-  monaco-yaml@5.5.0(monaco-editor@0.43.0):
+  monaco-yaml@5.5.1(monaco-editor@0.43.0):
     dependencies:
       '@vscode/l10n': 0.0.18
-      jsonc-parser: 3.2.0
+      jsonc-parser: 3.3.1
       monaco-editor: 0.43.0
       monaco-languageserver-types: 0.4.0
-      monaco-marker-data-provider: 1.1.1(monaco-editor@0.43.0)
+      monaco-marker-data-provider: 1.2.5
       monaco-types: 0.1.2
       monaco-worker-manager: 2.0.1(monaco-editor@0.43.0)
       path-browserify: 1.0.1
-      prettier: 3.4.2
-      vscode-languageserver-textdocument: 1.0.8
+      prettier: 3.8.4
+      proxy-disposable: 1.0.0
+      vscode-languageserver-textdocument: 1.0.12
       vscode-languageserver-types: 3.18.0
       vscode-uri: 3.1.0
-      yaml: 2.8.3
+      yaml: 2.9.0
 
   nanoid@3.3.12: {}
 
@@ -616,7 +618,9 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prettier@3.4.2: {}
+  prettier@3.8.4: {}
+
+  proxy-disposable@1.0.0: {}
 
   rolldown@1.0.3:
     dependencies:
@@ -651,7 +655,7 @@ snapshots:
 
   undici-types@7.18.2: {}
 
-  vite@8.0.16(@types/node@24.13.1)(yaml@2.8.3):
+  vite@8.0.16(@types/node@24.13.1)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
@@ -661,7 +665,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.13.1
       fsevents: 2.3.3
-      yaml: 2.8.3
+      yaml: 2.9.0
 
   vscode-jsonrpc@9.0.0: {}
 
@@ -670,10 +674,10 @@ snapshots:
       vscode-jsonrpc: 9.0.0
       vscode-languageserver-types: 3.18.0
 
-  vscode-languageserver-textdocument@1.0.8: {}
+  vscode-languageserver-textdocument@1.0.12: {}
 
   vscode-languageserver-types@3.18.0: {}
 
   vscode-uri@3.1.0: {}
 
-  yaml@2.8.3: {}
+  yaml@2.9.0: {}
