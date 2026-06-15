@@ -4,9 +4,6 @@
   "engines": {
     "node": ">=20"
   },
-  "volta": {
-    "node": "24.14.1"
-  },
   "private": true,
   "type": "module",
   "scripts": {
