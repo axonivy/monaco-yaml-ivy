@@ -16,7 +16,7 @@ importers:
         version: 0.43.0
       monaco-languageserver-types:
         specifier: ^0.4.0
-        version: 0.4.0
+        version: 0.4.1
       monaco-yaml:
         specifier: ^5.2.3
         version: 5.5.0(monaco-editor@0.43.0)
@@ -266,8 +266,8 @@ packages:
   monaco-editor@0.43.0:
     resolution: {integrity: sha512-cnoqwQi/9fml2Szamv1XbSJieGJ1Dc8tENVMD26Kcfl7xGQWp7OBKMjlwKVGYFJ3/AXJjSOGvcqK7Ry/j9BM1Q==}
 
-  monaco-languageserver-types@0.4.0:
-    resolution: {integrity: sha512-QQ3BZiU5LYkJElGncSNb5AKoJ/LCs6YBMCJMAz9EA7v+JaOdn3kx2cXpPTcZfKA5AEsR0vc97sAw+5mdNhVBmw==}
+  monaco-languageserver-types@0.4.1:
+    resolution: {integrity: sha512-uLiYM6K6jPqAa1ni9lRBoj8ZJAErOcegBrfEpurIUUO8cBhlhrGYjWbjhl4OPcxUNoj1JvqSETjwCTyhGgwymQ==}
 
   monaco-marker-data-provider@1.1.1:
     resolution: {integrity: sha512-PGB7TJSZE5tmHzkxv/OEwK2RGNC2A7dcq4JRJnnj31CUAsfmw0Gl+1QTrH0W0deKhcQmQM0YVPaqgQ+0wCt8Mg==}
@@ -562,7 +562,7 @@ snapshots:
 
   monaco-editor@0.43.0: {}
 
-  monaco-languageserver-types@0.4.0:
+  monaco-languageserver-types@0.4.1:
     dependencies:
       monaco-types: 0.1.2
       vscode-languageserver-protocol: 3.18.0
@@ -583,7 +583,7 @@ snapshots:
       '@vscode/l10n': 0.0.18
       jsonc-parser: 3.2.0
       monaco-editor: 0.43.0
-      monaco-languageserver-types: 0.4.0
+      monaco-languageserver-types: 0.4.1
       monaco-marker-data-provider: 1.1.1(monaco-editor@0.43.0)
       monaco-types: 0.1.2
       monaco-worker-manager: 2.0.1(monaco-editor@0.43.0)
