@@ -2,7 +2,7 @@
   "name": "@axonviy/monaco-yaml-ivy",
   "version": "1.0.0",
   "engines": {
-    "node": ">=20"
+    "node": ">=24.11"
   },
   "private": true,
   "type": "module",
