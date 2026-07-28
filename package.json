@@ -16,14 +16,14 @@
     "sbom:dev": "pnpm sbom --sbom-format cyclonedx > bom-dev.json"
   },
   "dependencies": {
-    "monaco-languageserver-types": "^0.4.0",
     "monaco-editor": "0.54.0",
-    "monaco-yaml": "^5.2.3"
+    "monaco-languageserver-types": "^0.4.1",
+    "monaco-yaml": "^5.5.1"
   },
   "devDependencies": {
     "@playwright/test": "1.62.0",
-    "@types/node": "^24.0.0",
-    "typescript": "^7.0.0",
+    "@types/node": "^24.13.3",
+    "typescript": "^7.0.2",
     "vite": "8.1.5"
   }
 }

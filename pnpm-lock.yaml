@@ -15,20 +15,20 @@ importers:
         specifier: 0.54.0
         version: 0.54.0
       monaco-languageserver-types:
-        specifier: ^0.4.0
+        specifier: ^0.4.1
         version: 0.4.1
       monaco-yaml:
-        specifier: ^5.2.3
+        specifier: ^5.5.1
         version: 5.5.1(monaco-editor@0.54.0)
     devDependencies:
       '@playwright/test':
         specifier: 1.62.0
         version: 1.62.0
       '@types/node':
-        specifier: ^24.0.0
+        specifier: ^24.13.3
         version: 24.13.3
       typescript:
-        specifier: ^7.0.0
+        specifier: ^7.0.2
         version: 7.0.2
       vite:
         specifier: 8.1.5
@@ -293,8 +293,8 @@ packages:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
 
-  dompurify@3.4.11:
-    resolution: {integrity: sha512-zhlUV12GsaRzMsf9q5M254YhA4+VuF0fG+QFqu6aYpoGlKtz+w8//jBcGVYBgQkR5GHjUomejY84AV+/uPbWdw==}
+  dompurify@3.4.12:
+    resolution: {integrity: sha512-zQvGet8Z2sWbQhCmfFz/T5QWH2oBmjnqK3qvOjaqaNLrLEF912WamU+ohnTp0TCep/MFVHpdJuCZEdFOdTnEFg==}
 
   fdir@6.5.0:
     resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
@@ -702,7 +702,7 @@ snapshots:
 
   detect-libc@2.1.2: {}
 
-  dompurify@3.4.11:
+  dompurify@3.4.12:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
 
@@ -771,7 +771,7 @@ snapshots:
 
   monaco-editor@0.54.0:
     dependencies:
-      dompurify: 3.4.11
+      dompurify: 3.4.12
       marked: 14.0.0
 
   monaco-languageserver-types@0.4.1:
