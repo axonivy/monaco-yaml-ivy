@@ -16,7 +16,7 @@
     "sbom:dev": "pnpm sbom --sbom-format cyclonedx > bom-dev.json"
   },
   "dependencies": {
-    "monaco-editor": "0.54.0",
+    "monaco-editor": "0.56.0",
     "monaco-languageserver-types": "^0.4.1",
     "monaco-yaml": "^5.5.1"
   },
