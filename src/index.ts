@@ -1,5 +1,5 @@
 import * as monaco from 'monaco-editor';
-import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
+import EditorWorker from 'monaco-editor/editor/editor.worker?worker';
 import { configureMonacoYaml } from 'monaco-yaml';
 import YamlWorker from './yaml.worker?worker';
 
@@ -40,7 +40,7 @@ function createYamlEditor(element: HTMLElement | null, uri: string, content: str
   }
   monaco.editor.defineTheme('monaco-yaml-theme', themeData(theme));
   monaco.editor.setTheme('monaco-yaml-theme');
-  monaco.languages.html.registerHTMLLanguageService('xml', {}, { documentFormattingEdits: true });
+  monaco.html.registerHTMLLanguageService('xml', {}, { documentFormattingEdits: true });
   return monaco.editor.create(element, {
     automaticLayout: true,
     model: monaco.editor.createModel(content, undefined, monaco.Uri.parse(uri)),
