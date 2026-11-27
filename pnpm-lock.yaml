@@ -12,14 +12,14 @@ importers:
   .:
     dependencies:
       monaco-editor:
-        specifier: 0.54.0
-        version: 0.54.0
+        specifier: 0.58.0
+        version: 0.58.0
       monaco-languageserver-types:
         specifier: ^0.4.1
         version: 0.4.1
       monaco-yaml:
         specifier: ^5.5.1
-        version: 5.5.1(monaco-editor@0.54.0)
+        version: 5.5.1(monaco-editor@0.58.0)
     devDependencies:
       '@playwright/test':
         specifier: 1.64.1
@@ -269,6 +269,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@vscode/diff@0.0.2-145':
+    resolution: {integrity: sha512-atPcmNrAU4B8OsbrmqYlHbZREt//m8z52o400YA8uuvq3Be5wnmIhLoLqhMum7Jv7kRC0FE+m3WAUbaZF681wg==}
+
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
 
@@ -375,8 +378,8 @@ packages:
     engines: {node: '>= 18'}
     hasBin: true
 
-  monaco-editor@0.54.0:
-    resolution: {integrity: sha512-hx45SEUoLatgWxHKCmlLJH81xBo0uXP4sRkESUpmDQevfi+e7K1VuiSprK6UpQ8u4zOcKNiH0pMvHvlMWA/4cw==}
+  monaco-editor@0.58.0:
+    resolution: {integrity: sha512-Lj5hlfT4zdM5GSG9VxTHslWnwibGBvO6d9Mq/+9zmb1CkTZnib4+uAZUKl1zg+tMHRgY2OGax6hHKZNBtldR1g==}
 
   monaco-languageserver-types@0.4.1:
     resolution: {integrity: sha512-uLiYM6K6jPqAa1ni9lRBoj8ZJAErOcegBrfEpurIUUO8cBhlhrGYjWbjhl4OPcxUNoj1JvqSETjwCTyhGgwymQ==}
@@ -641,6 +644,8 @@ snapshots:
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
 
+  '@vscode/diff@0.0.2-145': {}
+
   '@vscode/l10n@0.0.18': {}
 
   detect-libc@2.1.2: {}
@@ -709,8 +714,9 @@ snapshots:
 
   marked@14.0.0: {}
 
-  monaco-editor@0.54.0:
+  monaco-editor@0.58.0:
     dependencies:
+      '@vscode/diff': 0.0.2-145
       dompurify: 3.4.17
       marked: 14.0.0
 
@@ -726,19 +732,19 @@ snapshots:
 
   monaco-types@0.1.2: {}
 
-  monaco-worker-manager@2.0.1(monaco-editor@0.54.0):
+  monaco-worker-manager@2.0.1(monaco-editor@0.58.0):
     dependencies:
-      monaco-editor: 0.54.0
+      monaco-editor: 0.58.0
 
-  monaco-yaml@5.5.1(monaco-editor@0.54.0):
+  monaco-yaml@5.5.1(monaco-editor@0.58.0):
     dependencies:
       '@vscode/l10n': 0.0.18
       jsonc-parser: 3.3.1
-      monaco-editor: 0.54.0
+      monaco-editor: 0.58.0
       monaco-languageserver-types: 0.4.1
       monaco-marker-data-provider: 1.2.5
       monaco-types: 0.1.2
-      monaco-worker-manager: 2.0.1(monaco-editor@0.54.0)
+      monaco-worker-manager: 2.0.1(monaco-editor@0.58.0)
       path-browserify: 1.0.1
       prettier: 3.9.9
       proxy-disposable: 1.0.0
